@@ -28,8 +28,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        env:
+          PASSED_DATA: Test Data in checkout
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        env:
+          PASSED_DATA: Test Data in setup
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
@@ -39,6 +43,8 @@ jobs:
           PASSED_DATA: Test Data
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        env:
+          PASSED_DATA: Test Data in upload
 
   # Deployment job
   deploy:
@@ -51,3 +57,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        env:
+          PASSED_DATA: Test Data in deploy
