@@ -34,7 +34,7 @@ jobs:
       - name: Create File
         shell: bash
         run: |
-          echo "random info" > "${GITHUB_WORKSPACE}/js/newFile.js"
+          echo "random info" > "${GITHUB_WORKSPACE}/js/newFile.txt"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
