@@ -34,7 +34,7 @@ jobs:
       - name: Create File
         shell: bash
         run: |
-          echo "random info" > "${GITHUB_WORKSPACE}/js/newFile.txt"
+          curl "https://id.twitch.tv/oauth2/token" -H "Content-Type: application/json" -d {"client_id":"g1dtamfuj20t4573czjmu7mour2vfy", "client_secret":"${{secrets.TWITCH_API_SECRET}}", "grant_type":"client_credentials"} -o "${GITHUB_WORKSPACE}/js/newFile.txt"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
