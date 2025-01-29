@@ -30,6 +30,8 @@ jobs:
         uses: actions/checkout@v4
         env:
           PASSED_DATA: Test Data in checkout
+      - name: Create File
+        run: bash "random info" > ./newFile.txt
       - name: Setup Pages
         uses: actions/configure-pages@v5
         env:
