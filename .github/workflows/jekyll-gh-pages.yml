@@ -34,9 +34,9 @@ jobs:
       - name: Create File
         shell: bash
         env: 
-          Twitch_API: ${{secrets.TWITCH_API_SECRET }}
+          Twitch_API: ${{ secrets.TWITCH_API_SECRET }}
         run: |
-          curl -d "client_id=g1dtamfuj20t4573czjmu7mour2vfy&client_secret=$Twitch_API&grant_type=client_credentials" -H "Content-Type: application/x-www-form-urlencoded" -X POST "https://id.twitch.tv/oauth2/token" -o "${GITHUB_WORKSPACE}/js/newFile.txt"
+          curl -d "client_id=g1dtamfuj20t4573czjmu7mour2vfy&client_secret="$Twitch_API"&grant_type=client_credentials" -H "Content-Type: application/x-www-form-urlencoded" -X POST "https://id.twitch.tv/oauth2/token" -o "${GITHUB_WORKSPACE}/js/newFile.txt"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
