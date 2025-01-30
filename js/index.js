@@ -1,3 +1,8 @@
+
+const images = ["images/FraeyaStaring.png", "images/FraeyaLookingMischevious.png"]
+
+
+
 function testGithubSecret() {
     document.getElementById("testingVariablePass").textContent = "Just test the content"
 
@@ -7,6 +12,13 @@ function testGithubSecret() {
             console.log(text)
         })
         .catch((e) => console.error(e))
+}
+
+
+function changeImage() {
+    console.log("Hello")
+    document.getElementById("FraeyaImage").src = images[Math.floor(Math.random() * images.length)]
+    
 }
 
 testGithubSecret()
