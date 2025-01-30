@@ -1,5 +1,4 @@
-body 
-{
+body {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -8,5 +7,8 @@ body
   background-color: #cc96c7;
 
   text-align: center;
+
+  font-family: 'Brush Script MT', cursive;
+  font-size: 6vmin;
 
 }
