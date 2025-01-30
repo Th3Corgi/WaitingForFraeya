@@ -29,8 +29,21 @@ async function pullFraeyaVods() {
 
     console.log(todayDate.getTime() - publishedat.getTime())
 
-    console.log(formatDuration(todayDate.getTime() - publishedat.getTime()))
+    console.log(vodJson.data[0].duration)
 
+
+    console.log(formatDuration(todayDate.getTime() - publishedat.getTime() - convertDuration(vodJson.data[0].duration)))
+
+}
+
+function convertDuration(string) {
+    let hours = string.split("h")[0]
+    let minutes = string.split("m")[0].split("h")[1]
+    let seconds = string.split("m")[1]
+
+    console.log((hours * 3600000) + (minutes * 60000) + (seconds * 1000))
+    
+    return (hours * 3600000) + (minutes * 60000) + (seconds * 1000)
 }
 
 function formatDuration(elapsedMilliseconds) {
