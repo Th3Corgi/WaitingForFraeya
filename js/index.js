@@ -17,7 +17,7 @@ async function howLongSince() {
 
     streamDuration = convertDuration(vodJson.data[0].duration)
 
-    timeInMills = (currentTime.getTime() - publishedat.getTime() - convertDuration(vodJson.data[0].duration))
+    timeInMills = (currentTime.getTime() - streamStarted.getTime() - streamDuration)
 
     // If the time since the stream updated and now is less than 15 minutes, she is most likely still live (find a better way to check this)
     if (timeInMills < 900000) {
