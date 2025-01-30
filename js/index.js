@@ -7,8 +7,8 @@ function testGithubSecret() {
     document.getElementById("testingVariablePass").textContent = "Just test the content"
 }
 
-function howLongSince() {
-    document.getElementById("howLong").textContent = pullFraeyaVods()
+async function howLongSince() {
+    document.getElementById("howLong").textContent = await pullFraeyaVods()
 }
 
 
@@ -45,9 +45,7 @@ async function pullFraeyaVods() {
 function convertDuration(string) {
     let hours = string.split("h")[0]
     let minutes = string.split("m")[0].split("h")[1]
-    let seconds = string.split("m")[1]
-
-    console.log((hours * 3600000) + (minutes * 60000) + (seconds * 1000))
+    let seconds = string.split("m")[1].split("s")[0]
     
     return (hours * 3600000) + (minutes * 60000) + (seconds * 1000)
 }
