@@ -12,6 +12,11 @@ function changeImage() {
     document.getElementById("FraeyaImage").src = images[Math.floor(Math.random() * images.length)]
 }
 
+function parseISOString(s) {
+    var b = s.split(/\D+/);
+    return new Date(Date.UTC(b[0], --b[1], b[2], b[3], b[4], b[5], b[6]));
+}
+
 async function pullFraeyaVods() {
 
     let vodJson;
@@ -24,7 +29,7 @@ async function pullFraeyaVods() {
 
     console.log(publishedat)
     console.log(Date())
-    console.log(Date(publishedat))
+    console.log(Date(parseISOString(publishedat)))
     console.log(Date() - Date(publishedat))
 }
 
