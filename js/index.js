@@ -1,5 +1,5 @@
 
-const images = ["images/FraeyaStaring.png", "images/FraeyaLookingMischevious.png", "images/FraeyaLaugh.png", "images/Fritch.png"]
+const images = ["images/FraeyaStaring.png", "images/FraeyaLookingMischevious.png", "images/FraeyaLaugh.png", "images/ritch.png"]
 
 
 
@@ -12,11 +12,6 @@ function changeImage() {
     document.getElementById("FraeyaImage").src = images[Math.floor(Math.random() * images.length)]
 }
 
-function parseISOString(s) {
-    var b = s.split(/\D+/);
-    return new Date(Date.UTC(b[0], --b[1], b[2], b[3], b[4], b[5], b[6]));
-}
-
 async function pullFraeyaVods() {
 
     let vodJson;
@@ -25,13 +20,31 @@ async function pullFraeyaVods() {
 
     vodJson = await response.json()
 
-    publishedat = vodJson.data[0].published_at
+    publishedat = new Date(vodJson.data[0].published_at)
 
-    console.log(publishedat)
-    console.log(Date())
-    console.log(Date(parseISOString(publishedat)))
-    console.log(Date() - Date(publishedat))
+    todayDate = new Date()
+
+    console.log(todayDate.getTime())
+    console.log(publishedat.getTime())
+
+    console.log(todayDate.getTime() - publishedat.getTime())
+
+    console.log(msToTime(todayDate.getTime() - publishedat.getTime()))
+
 }
+
+function msToTime(duration) {
+    var milliseconds = Math.floor((duration % 1000) / 100),
+      seconds = Math.floor((duration / 1000) % 60),
+      minutes = Math.floor((duration / (1000 * 60)) % 60),
+      hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+  
+    hours = (hours < 10) ? "0" + hours : hours;
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
+  
+    return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
+  }
 
 
 pullFraeyaVods()
