@@ -12,20 +12,20 @@ function changeImage() {
     document.getElementById("FraeyaImage").src = images[Math.floor(Math.random() * images.length)]
 }
 
-const vodJson = await pullFraeyaVods()
+async function pullFraeyaVods() {
 
-function pullFraeyaVods() {
+    let vodJson;
     
-    fetch("./js/newFile.txt")
-        .then((response) => response.text())
-        .then((text) =>  {
-            return JSON.parse(text)
-        })
-        .catch((e) => console.error(e))
+    const response = await fetch("./js/newFile.txt")
 
-    console.log(vodJson)
-    console.log(vodJson.data)
-    console.log(vodJson.data[0])
+    vodJson = await response.json()
+
+    publishedat = vodJson.data[0].published_at
+
+    console.log(publishedat)
+    console.log(Date())
+    console.log(Date(publishedat))
+    console.log(Date() - Date(publishedat))
 }
 
 
