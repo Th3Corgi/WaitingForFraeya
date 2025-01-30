@@ -7,9 +7,26 @@ function testGithubSecret() {
     document.getElementById("testingVariablePass").textContent = "Just test the content"
 }
 
-async function howLongSince() {
-    document.getElementById("howLong").textContent = await pullFraeyaVods()
+async function howLongSince(vodJson) {
+
+    streamStarted = new Date(vodJson.data[0].published_at)
+
+    currentTime = new Date()
+
+    streamDuration = convertDuration(vodJson.data[0].duration)
+
+    timeInMills = (currentTime.getTime() - publishedat.getTime() - convertDuration(vodJson.data[0].duration))
+
+    // If the time since the stream updated and now is less than 15 minutes, she is most likely still live (find a better way to check this)
+    if (timeInMills < 900000) {
+        document.getElementById("howLong").textContent = "Fraeya is live!!"
+    } else {
+        document.getElementById("howLong").textContent = `We have spent ${formatDuration(timeInMills)} missing Fraeya.`
+    }
+
+    
 }
+
 
 
 function changeImage() {
@@ -24,21 +41,7 @@ async function pullFraeyaVods() {
 
     vodJson = await response.json()
 
-    publishedat = new Date(vodJson.data[0].published_at)
-
-    todayDate = new Date()
-
-    console.log(todayDate.getTime())
-    console.log(publishedat.getTime())
-
-    console.log(todayDate.getTime() - publishedat.getTime())
-
-    console.log(vodJson.data[0].duration)
-
-
-    console.log(formatDuration(todayDate.getTime() - publishedat.getTime() - convertDuration(vodJson.data[0].duration)))
-
-    return(formatDuration(todayDate.getTime() - publishedat.getTime() - convertDuration(vodJson.data[0].duration)))
+    return vodJson
 
 }
 
@@ -59,7 +62,4 @@ function formatDuration(elapsedMilliseconds) {
     return `${days} days, ${hours % 24} hours, ${minutes % 60} minutes, ${seconds % 60} seconds`;
 }
 
-
-pullFraeyaVods()
-testGithubSecret()
-howLongSince()
+setInterval(howLongSince, 1000, pullFraeyaVods())
