@@ -7,6 +7,10 @@ function testGithubSecret() {
     document.getElementById("testingVariablePass").textContent = "Just test the content"
 }
 
+function howLongSince() {
+    document.getElementById("howLong").textContent = pullFraeyaVods()
+}
+
 
 function changeImage() {
     document.getElementById("FraeyaImage").src = images[Math.floor(Math.random() * images.length)]
@@ -34,6 +38,8 @@ async function pullFraeyaVods() {
 
     console.log(formatDuration(todayDate.getTime() - publishedat.getTime() - convertDuration(vodJson.data[0].duration)))
 
+    return(formatDuration(todayDate.getTime() - publishedat.getTime() - convertDuration(vodJson.data[0].duration)))
+
 }
 
 function convertDuration(string) {
@@ -58,3 +64,4 @@ function formatDuration(elapsedMilliseconds) {
 
 pullFraeyaVods()
 testGithubSecret()
+howLongSince()
