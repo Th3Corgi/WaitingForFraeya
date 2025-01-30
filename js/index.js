@@ -1,5 +1,5 @@
 
-const images = ["images/FraeyaStaring.png", "images/FraeyaLookingMischevious.png", "images/FraeyaLaugh.png", "images/ritch.png"]
+const images = ["images/FraeyaStaring.png", "images/FraeyaLookingMischevious.png", "images/FraeyaLaugh.png", "images/fritch.jpg"]
 
 
 
@@ -29,22 +29,18 @@ async function pullFraeyaVods() {
 
     console.log(todayDate.getTime() - publishedat.getTime())
 
-    console.log(msToTime(todayDate.getTime() - publishedat.getTime()))
+    console.log(formatDuration(todayDate.getTime() - publishedat.getTime()))
 
 }
 
-function msToTime(duration) {
-    var milliseconds = Math.floor((duration % 1000) / 100),
-      seconds = Math.floor((duration / 1000) % 60),
-      minutes = Math.floor((duration / (1000 * 60)) % 60),
-      hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+function formatDuration(elapsedMilliseconds) {
+    const seconds = Math.floor(elapsedMilliseconds / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
   
-    hours = (hours < 10) ? "0" + hours : hours;
-    minutes = (minutes < 10) ? "0" + minutes : minutes;
-    seconds = (seconds < 10) ? "0" + seconds : seconds;
-  
-    return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
-  }
+    return `${days} days, ${hours % 24} hours, ${minutes % 60} minutes, ${seconds % 60} seconds`;
+}
 
 
 pullFraeyaVods()
