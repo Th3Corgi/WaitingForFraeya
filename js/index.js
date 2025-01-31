@@ -7,9 +7,7 @@ function testGithubSecret() {
     document.getElementById("testingVariablePass").textContent = "Just test the content"
 }
 
-async function howLongSince(vodJsonPromise) {
-
-    vodJson = await vodJsonPromise
+async function howLongSince(vodJson) {
 
     streamStarted = new Date(vodJson.data[0].published_at)
 
@@ -47,7 +45,7 @@ function convertDuration(string) {
 
     // DO NOT DO WHATEVER THIS IS, ITS HORRENDOUS
     let timeArray = string.split(/[a-z]/)
-    
+
     if (timeArray.length == 4) {
         return (timeArray[0] * 3600000) + (timeArray[1] * 60000) + (timeArray[3] * 1000)
     } else if (timeArray.length == 3) {
@@ -66,4 +64,13 @@ function formatDuration(elapsedMilliseconds) {
     return `${days} days, ${hours % 24} hours, ${minutes % 60} minutes, ${seconds % 60} seconds`;
 }
 
-setInterval(howLongSince, 1000, pullFraeyaVods())
+const vodsJson = (async () => {
+    const json = await pullFraeyaVods();
+    return json
+  })()
+
+// Run the script on the start of the page
+howLongSince(vodsJson)
+
+// Set interval to update every second
+setInterval(howLongSince, 1000, vodsJson)
