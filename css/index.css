@@ -16,6 +16,7 @@ body {
 containFraeya {
   height: 10vh;
   margin: 3vmin;
+  font-size: x-small;
 
 }
 
@@ -25,9 +26,10 @@ containFraeya img {
 }
 
 footer {
-  font-size: 25%;
+  font-size: 50%;
   width: 100%;
   position: absolute;
-  margin-bottom: 3rem;
+  margin-top: 3rem;
+  bottom: 3rem;
 
 }
