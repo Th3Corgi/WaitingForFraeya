@@ -1,4 +1,4 @@
-
+const vodsJson = await pullFraeyaVods()
 //const images = ["images/FraeyaStaring.png", "images/FraeyaLookingMischevious.png", "images/FraeyaLaugh.png", "images/fritch.jpg"]
 
 const images = ["images/FraeyaStaring.png", "images/FraeyaLookingMischevious.png", "images/FraeyaLaugh.png"]
@@ -63,11 +63,6 @@ function formatDuration(elapsedMilliseconds) {
   
     return `${days} days, ${hours % 24} hours, ${minutes % 60} minutes, ${seconds % 60} seconds`;
 }
-
-const vodsJson = (async () => {
-    const json = await pullFraeyaVods();
-    return json
-  })()
 
 // Run the script on the start of the page
 howLongSince(vodsJson)
