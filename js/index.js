@@ -9,6 +9,8 @@ function testGithubSecret() {
 
 async function howLongSince(vodJson) {
 
+    vodJson = await vodJson
+
     streamStarted = new Date(vodJson.data[0].published_at)
 
     currentTime = new Date()
@@ -37,9 +39,7 @@ async function pullFraeyaVods() {
     
     const response = await fetch("./js/newFile.txt")
 
-    const vodJson = await response.json()
-
-    return vodJson
+    return response.json()
 
 }
 
@@ -60,6 +60,4 @@ function formatDuration(elapsedMilliseconds) {
     return `${days} days, ${hours % 24} hours, ${minutes % 60} minutes, ${seconds % 60} seconds`;
 }
 
-const vodJSONobject = await pullFraeyaVods()
-
-setInterval(howLongSince, 1000, vodJSONobject)
+setInterval(howLongSince, 1000, pullFraeyaVods())
