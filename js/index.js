@@ -1,6 +1,8 @@
 
 const images = ["images/FraeyaStaring.png", "images/FraeyaLookingMischevious.png", "images/FraeyaLaugh.png", "images/fritch.jpg"]
 
+let previousImage = -1
+
 //const images = ["images/FraeyaStaring.png", "images/FraeyaLookingMischevious.png", "images/FraeyaLaugh.png"]
 
 function testGithubSecret() {
@@ -32,7 +34,13 @@ async function howLongSince(vodJsonPromise) {
 
 
 function changeImage() {
-    document.getElementById("FraeyaImage").src = images[Math.floor(Math.random() * images.length)]
+    
+    newRandom = -1
+    while (newRandom == previousImage) {
+        newRandom = Math.floor(Math.random() * images.length)
+    }
+
+    document.getElementById("FraeyaImage").src = images[newRandom]
 }
 
 async function pullFraeyaVods() {
