@@ -34,12 +34,10 @@ function changeImage() {
 }
 
 async function pullFraeyaVods() {
-
-    let vodJson;
     
     const response = await fetch("./js/newFile.txt")
 
-    vodJson = await response.json()
+    const vodJson = await response.json()
 
     return vodJson
 
@@ -62,6 +60,6 @@ function formatDuration(elapsedMilliseconds) {
     return `${days} days, ${hours % 24} hours, ${minutes % 60} minutes, ${seconds % 60} seconds`;
 }
 
-vodJSONobject = pullFraeyaVods()
+vodJSONobject = await pullFraeyaVods()
 
 setInterval(howLongSince, 1000, vodJSONobject)
