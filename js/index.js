@@ -7,9 +7,9 @@ function testGithubSecret() {
     document.getElementById("testingVariablePass").textContent = "Just test the content"
 }
 
-async function howLongSince(vodJson) {
+async function howLongSince(vodJsonPromise) {
 
-    vodJson = await vodJson
+    vodJson = await vodJsonPromise
 
     streamStarted = new Date(vodJson.data[0].published_at)
 
@@ -44,11 +44,17 @@ async function pullFraeyaVods() {
 }
 
 function convertDuration(string) {
-    let hours = string.split("h")[0]
-    let minutes = string.split("m")[0].split("h")[1]
-    let seconds = string.split("m")[1].split("s")[0]
+
+    // DO NOT DO WHATEVER THIS IS, ITS HORRENDOUS
+    let timeArray = string.split(/[a-z]/)
     
-    return (hours * 3600000) + (minutes * 60000) + (seconds * 1000)
+    if (timeArray.length == 4) {
+        return (timeArray[0] * 3600000) + (timeArray[1] * 60000) + (timeArray[3] * 1000)
+    } else if (timeArray.length == 3) {
+        return((timeArray[0] * 60000) + (timeArray[1] * 1000))
+    }
+    
+    
 }
 
 function formatDuration(elapsedMilliseconds) {
