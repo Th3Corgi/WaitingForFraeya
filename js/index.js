@@ -1,4 +1,4 @@
-const vodsJson = await pullFraeyaVods()
+
 //const images = ["images/FraeyaStaring.png", "images/FraeyaLookingMischevious.png", "images/FraeyaLaugh.png", "images/fritch.jpg"]
 
 const images = ["images/FraeyaStaring.png", "images/FraeyaLookingMischevious.png", "images/FraeyaLaugh.png"]
@@ -7,7 +7,9 @@ function testGithubSecret() {
     document.getElementById("testingVariablePass").textContent = "Just test the content"
 }
 
-async function howLongSince(vodJson) {
+async function howLongSince(vodJsonPromise) {
+
+    vodJson = await vodJsonPromise
 
     streamStarted = new Date(vodJson.data[0].published_at)
 
@@ -63,9 +65,8 @@ function formatDuration(elapsedMilliseconds) {
   
     return `${days} days, ${hours % 24} hours, ${minutes % 60} minutes, ${seconds % 60} seconds`;
 }
-
 // Run the script on the start of the page
-howLongSince(vodsJson)
+howLongSince(pullFraeyaVods())
 
 // Set interval to update every second
-setInterval(howLongSince, 1000, vodsJson)
+setInterval(howLongSince, 1000, pullFraeyaVods())
