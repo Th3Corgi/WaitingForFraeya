@@ -14,7 +14,8 @@ body {
 }
 
 containFraeya {
-  height: 600px;
+  height: 10vh;
+  margin: 3vmin;
 
 }
 
