@@ -12,3 +12,13 @@ body {
   font-size: 5vmin;
 
 }
+
+containFraeya {
+  height: 600px;
+
+}
+
+containFraeya img {
+  max-height: 100%;
+  max-width: 100%;
+}
