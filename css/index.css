@@ -14,15 +14,11 @@ body {
 }
 
 containFraeya {
-  height: 10vh;
-  margin: 3vmin;
+  height: 10vmin;
+  width: 10vmin;
+  margin: 1vmin;
   font-size: x-small;
 
-}
-
-containFraeya img {
-  max-height: 100%;
-  max-width: 100%;
 }
 
 footer {
