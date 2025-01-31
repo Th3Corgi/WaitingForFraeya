@@ -60,6 +60,6 @@ function formatDuration(elapsedMilliseconds) {
     return `${days} days, ${hours % 24} hours, ${minutes % 60} minutes, ${seconds % 60} seconds`;
 }
 
-vodJSONobject = await pullFraeyaVods()
+const vodJSONobject = await pullFraeyaVods()
 
 setInterval(howLongSince, 1000, vodJSONobject)
