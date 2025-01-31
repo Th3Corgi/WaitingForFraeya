@@ -36,9 +36,10 @@ async function howLongSince(vodJsonPromise) {
 function changeImage() {
     
     newRandom = -1
-    while (newRandom == previousImage) {
+    while (newRandom == previousImage || newRandom == -1) {
         newRandom = Math.floor(Math.random() * images.length)
     }
+    previousImage = newRandom
 
     document.getElementById("FraeyaImage").src = images[newRandom]
 }
