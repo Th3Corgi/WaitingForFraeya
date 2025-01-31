@@ -64,4 +64,6 @@ function formatDuration(elapsedMilliseconds) {
     return `${days} days, ${hours % 24} hours, ${minutes % 60} minutes, ${seconds % 60} seconds`;
 }
 
+howLongSince()
+
 setInterval(howLongSince, 1000)

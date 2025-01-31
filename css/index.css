@@ -22,3 +22,11 @@ containFraeya img {
   max-height: 100%;
   max-width: 100%;
 }
+
+footer {
+  font-size: 50%;
+  width: 100%;
+  position: absolute;
+  margin-bottom: 3rem;
+
+}
