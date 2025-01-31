@@ -7,9 +7,7 @@ function testGithubSecret() {
     document.getElementById("testingVariablePass").textContent = "Just test the content"
 }
 
-async function howLongSince() {
-
-    vodJson = await pullFraeyaVods()
+async function howLongSince(vodJson) {
 
     streamStarted = new Date(vodJson.data[0].published_at)
 
@@ -64,6 +62,6 @@ function formatDuration(elapsedMilliseconds) {
     return `${days} days, ${hours % 24} hours, ${minutes % 60} minutes, ${seconds % 60} seconds`;
 }
 
-howLongSince()
+vodJSONobject = await pullFraeyaVods()
 
-setInterval(howLongSince, 1000)
+setInterval(howLongSince, 1000, vodJSONobject)
