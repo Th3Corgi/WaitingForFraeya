@@ -3,12 +3,8 @@ const images = ["images/FraeyaStaring.png", "images/FraeyaLookingMischevious.png
 
 let previousImage = -1
 
-//const images = ["images/FraeyaStaring.png", "images/FraeyaLookingMischevious.png", "images/FraeyaLaugh.png"]
-
-function testGithubSecret() {
-    document.getElementById("testingVariablePass").textContent = "Just test the content"
-}
-
+// This function uses the list of fraeya vods to determine the amount of time the stream has been offline for.
+// Param - JSON Promise
 async function howLongSince(vodJsonPromise) {
 
     vodJson = await vodJsonPromise
@@ -21,18 +17,17 @@ async function howLongSince(vodJsonPromise) {
 
     timeInMills = (currentTime.getTime() - streamStarted.getTime() - streamDuration)
 
-    // If the time since the stream updated and now is less than 15 minutes, she is most likely still live (find a better way to check this)
-    if (true) {
+    // Update checking every 15 minutes in schedule, so on the next update, if more than 15 minutes have passed, the stream must be offline. I still hate this way of doing things...
+    if (timeInMills < 900500) {
         document.getElementById("howLong").textContent = "Fraeya is live!!"
     } else {
-        //document.getElementById("howLong").textContent = `We have spent ${formatDuration(timeInMills)} missing Fraeya.`
+        document.getElementById("howLong").textContent = `We have spent ${formatDuration(timeInMills)} missing Fraeya.`
     }
 
     
 }
 
-
-
+// This function changes the image of fraeya to a new random image that is different than the previous one
 function changeImage() {
     
     newRandom = -1
@@ -44,6 +39,8 @@ function changeImage() {
     document.getElementById("FraeyaImage").src = images[newRandom]
 }
 
+// This function pulls the json from the newFile.txt
+// Returns - JSON Promise
 async function pullFraeyaVods() {
     
     const response = await fetch("./js/newFile.txt")
@@ -52,6 +49,9 @@ async function pullFraeyaVods() {
 
 }
 
+// This function converts *h*m*s string into miliseconds
+// Param - String of form *h*m*s
+// Returns - Int of milliseconds
 function convertDuration(string) {
 
     // DO NOT DO WHATEVER THIS IS, ITS HORRENDOUS
@@ -66,6 +66,9 @@ function convertDuration(string) {
     
 }
 
+// This function converts miliseconds into a readable string.
+// Param - Int
+// Returns - String
 function formatDuration(elapsedMilliseconds) {
     const seconds = Math.floor(elapsedMilliseconds / 1000);
     const minutes = Math.floor(seconds / 60);
@@ -74,6 +77,7 @@ function formatDuration(elapsedMilliseconds) {
   
     return `${days} days, ${hours % 24} hours, ${minutes % 60} minutes, ${seconds % 60} seconds`;
 }
+
 // Run the script on the start of the page
 howLongSince(pullFraeyaVods())
 
