@@ -1,7 +1,15 @@
 
 const images = ["images/FraeyaStaring.png", "images/FraeyaLookingMischevious.png", "images/FraeyaLaugh.png", "images/fritch.jpg"]
 
+const audios = ["audio/yippee.mp3", "audio/FraeyaBwomp.mp3"]
+
 let previousImage = -1
+
+let previousAudio = -1
+
+let playingAudio = false
+
+let fraeyaSound;
 
 // This function uses the list of fraeya vods to determine the amount of time the stream has been offline for.
 // Param - JSON Promise
@@ -47,6 +55,41 @@ async function pullFraeyaVods() {
 
     return response.json()
 
+}
+
+// This function creates a javascript promise for playing audio
+// Params - A HTML Audio object
+// Returns - A promise to be resolved when the audio has finished playing
+function playAudio(audio) {
+    return new Promise(result => {
+        audio.play()
+        audio.onended = result
+    })
+}
+
+// This function plays a random fraeya sound (not the previous) and verifies that only one audio is running at a time
+//
+async function playFraeyaSound() {
+
+    if (!playingAudio) {
+
+        playingAudio = true
+
+        newRandom = -1
+        while (newRandom == previousAudio || newRandom == -1) {
+            newRandom = Math.floor(Math.random() * audios.length)
+        }
+
+        previousAudio = newRandom
+
+        let fraeyaSound = new Audio(audios[newRandom])
+
+        await playAudio(fraeyaSound)
+
+        fraeyaSound.currentTime = 0
+        playingAudio = false
+
+    }
 }
 
 // This function converts *h*m*s string into miliseconds
