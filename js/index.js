@@ -22,10 +22,10 @@ async function howLongSince(vodJsonPromise) {
     timeInMills = (currentTime.getTime() - streamStarted.getTime() - streamDuration)
 
     // If the time since the stream updated and now is less than 15 minutes, she is most likely still live (find a better way to check this)
-    if (timeInMills < 900000) {
+    if (true) {
         document.getElementById("howLong").textContent = "Fraeya is live!!"
     } else {
-        document.getElementById("howLong").textContent = `We have spent ${formatDuration(timeInMills)} missing Fraeya.`
+        //document.getElementById("howLong").textContent = `We have spent ${formatDuration(timeInMills)} missing Fraeya.`
     }
 
     
