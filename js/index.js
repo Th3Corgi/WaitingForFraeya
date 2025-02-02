@@ -136,6 +136,7 @@ function changeBackground() {
     console.log(bgs[newRandom])
 }
 
+changeImage()
 changeBackground()
 
 // Run the script on the start of the page
