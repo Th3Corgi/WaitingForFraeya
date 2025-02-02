@@ -1,8 +1,7 @@
 body {
   display:flex;
   flex-direction: column;
-  min-height: 100vh;
-  justify-content: center;
+  max-height: 100vh;
 
   color: black;
   background-image: url("/bg/19-1024x576.png");
@@ -16,6 +15,7 @@ body {
 
   font-family: "Comic Sans MS", "Comic Sans", cursive;
   font-size: 4vmin;
+  overflow: hidden;
 
 }
 
@@ -33,9 +33,15 @@ footer {
 
 }
 
+#buttonDiv {
+  margin: 1rem;
+}
+
 button {
-  font-size: 2vmin;
+  font-size: 50%;
   font-family: "Comic Sans MS", "Comic Sans", cursive;
+
+  width: 25vmin;
 
   background-color: #a30080; /* Green */
   border: .01rem solid #000000;
@@ -44,6 +50,5 @@ button {
   padding: 1rem;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   
 }
