@@ -3,6 +3,8 @@ const images = ["images/FraeyaStaring.png", "images/FraeyaLookingMischevious.png
 
 const audios = ["audio/yippee.mp3", "audio/FraeyaBwomp.mp3"]
 
+const bgs = ["bg/19-1024x576.png", "bg/20-1024x576.png"]
+
 let previousImage = -1
 
 let previousAudio = -1
@@ -123,6 +125,18 @@ function formatDuration(elapsedMilliseconds) {
   
     return `${days} days, ${hours % 24} hours, ${minutes % 60} minutes, ${seconds % 60} seconds`;
 }
+
+function changeBackground() {
+    newRandom = Math.floor(Math.random() * bgs.length)
+
+    console.log(newRandom)
+
+    document.body.style.backgroundImage = `url(${bgs[newRandom]})`
+
+    console.log(bgs[newRandom])
+}
+
+changeBackground()
 
 // Run the script on the start of the page
 howLongSince(pullFraeyaVods())

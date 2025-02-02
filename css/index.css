@@ -1,15 +1,20 @@
 body {
-  display: flex;
+  display:flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
+  justify-content: center;
 
-  color: #000000;
+  color: black;
   background-image: url("/bg/19-1024x576.png");
+  background-size: 25%;
+  background-repeat:initial;
+  background-position: center;
+  background-size: cover;
   background-color: #cc96c7;
 
   text-align: center;
 
-  font-family: 'URW Chancery L', cursive;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
   font-size: 4vmin;
 
 }
@@ -29,8 +34,8 @@ footer {
 }
 
 button {
-  font-family: 'URW Chancery L', cursive;
   font-size: 2vmin;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
 
   background-color: #a30080; /* Green */
   border: .01rem solid #000000;
