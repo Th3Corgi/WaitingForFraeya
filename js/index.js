@@ -1,5 +1,7 @@
 
-const images = ["images/FraeyaStaring.png", "images/FraeyaLookingMischevious.png", "images/FraeyaLaugh.png", "images/fritch.jpg"]
+const images = ["images/FraeyaStaring.png", "images/FraeyaLookingMischevious.png", "images/FraeyaLaugh.png", "images/fritch.jpg", "images/awfawfawef.png",
+                "images/cutie.jpg", "images/dreamy.jpg", "images/evil.png", "images/FraeyaPuppy.png", "images/grabbing.png", "images/sgwearfgsg.png",
+                "images/spooked.png", "images/stare.png", "images/witch.png"]
 
 const audios = ["audio/yippee.mp3", "audio/FraeyaBwomp.mp3"]
 
