@@ -4,6 +4,7 @@ body {
   height: 100vh;
 
   color: #000000;
+  background-image: url("/bg/19-1024x576.png");
   background-color: #cc96c7;
 
   text-align: center;
@@ -25,4 +26,19 @@ footer {
   margin-top: 1rem;
   bottom: 3rem;
 
+}
+
+button {
+  font-family: 'URW Chancery L', cursive;
+  font-size: 2vmin;
+
+  background-color: #a30080; /* Green */
+  border: .01rem solid #000000;
+  border-radius: 1rem;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  
 }

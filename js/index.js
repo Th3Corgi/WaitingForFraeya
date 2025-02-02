@@ -74,6 +74,7 @@ async function playFraeyaSound() {
     if (!playingAudio) {
 
         playingAudio = true
+        document.getElementById("SoundButton").style.opacity = .6
 
         newRandom = -1
         while (newRandom == previousAudio || newRandom == -1) {
@@ -88,6 +89,8 @@ async function playFraeyaSound() {
 
         fraeyaSound.currentTime = 0
         playingAudio = false
+
+        document.getElementById("SoundButton").style.opacity = 1
 
     }
 }
