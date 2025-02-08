@@ -21,13 +21,7 @@ async function howLongSince(vodJsonPromise) {
 
     vodJson = await vodJsonPromise
 
-    streamStarted = new Date(vodJson.data[0].published_at)
-
-    currentTime = new Date()
-
-    streamDuration = convertDuration(vodJson.data[0].duration)
-
-    timeInMills = (currentTime.getTime() - streamStarted.getTime() - streamDuration)
+    timeInMills = (vodJson.currentTime - vodJson.streamStarted - vodJson.streamDuration)
 
     // Update checking every 15 minutes in schedule, so on the next update, if more than 15 minutes have passed, the stream must be offline. I still hate this way of doing things...
     if (timeInMills < 900500) {
@@ -37,6 +31,16 @@ async function howLongSince(vodJsonPromise) {
     }
 
     
+}
+
+async function getMostRecentStream(vodJsonPromise) {
+    vodJson = await vodJsonPromise
+
+    return {"streamStarted": new Date(vodJson.data[0].published_at).getTime(),
+            "currentTime": new Date().getTime(),
+            "streamDuration": convertDuration(vodJson.data[0].duration)
+            }
+
 }
 
 // This function changes the image of fraeya to a new random image that is different than the previous one
@@ -51,7 +55,7 @@ function changeImage() {
     document.getElementById("FraeyaImage").src = images[newRandom]
 }
 
-// This function pulls the json from the newFile.txt
+// This function pulls the json from the TwitchVods.txt
 // Returns - JSON Promise
 async function pullFraeyaVods() {
     
@@ -59,6 +63,27 @@ async function pullFraeyaVods() {
 
     return response.json()
 
+}
+
+// This function pulls the json from the streams.json
+// Returns - JSON Promise
+async function pullFraeyaSchedule() {
+    const response = await fetch("./calendar/streams.json")
+
+    return response.json()
+}
+
+async function scheduleToTime(JsonPromise) {
+    
+    let schedulejson = await JsonPromise
+
+    for (stream of schedulejson) {
+        console.log(stream)
+        console.log(new Date(stream.begin).getTime())
+    }
+
+    
+    
 }
 
 // This function creates a javascript promise for playing audio
@@ -138,11 +163,13 @@ function changeBackground() {
     console.log(bgs[newRandom])
 }
 
+scheduleToTime(pullFraeyaSchedule())
+
 changeImage()
 changeBackground()
 
 // Run the script on the start of the page
-howLongSince(pullFraeyaVods())
+howLongSince(getMostRecentStream(pullFraeyaVods()))
 
 // Set interval to update every second
 setInterval(howLongSince, 1000, pullFraeyaVods())
