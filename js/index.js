@@ -55,7 +55,7 @@ function changeImage() {
 // Returns - JSON Promise
 async function pullFraeyaVods() {
     
-    const response = await fetch("./js/newFile.txt")
+    const response = await fetch("./TwitchVods.txt")
 
     return response.json()
 
