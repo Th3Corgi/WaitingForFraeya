@@ -204,4 +204,4 @@ changeBackground()
 howLongSince(getMostRecentStream(pullFraeyaVods()))
 
 // Set interval to update every second
-setInterval(howLongSince, 1000, pullFraeyaVods())
+setInterval(howLongSince, 1000, getMostRecentStream(pullFraeyaVods()))
