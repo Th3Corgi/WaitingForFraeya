@@ -47,7 +47,13 @@ async function howLongSince(vodJsonPromise) {
 
     vodJson = await vodJsonPromise
 
-    timeInMills = (vodJson.currentTime - vodJson.streamStarted - vodJson.streamDuration)
+    streamStarted = new Date(vodJson.data[0].published_at)
+
+    currentTime = new Date()
+
+    streamDuration = convertDuration(vodJson.data[0].duration)
+
+    timeInMills = (currentTime.getTime() - streamStarted.getTime() - streamDuration)
 
     // Check if Fraeya is live using a calendar setup
     if (live) {
@@ -57,16 +63,6 @@ async function howLongSince(vodJsonPromise) {
     }
 
     
-}
-
-async function getMostRecentStream(vodJsonPromise) {
-    vodJson = await vodJsonPromise
-
-    return {"streamStarted": new Date(vodJson.data[0].published_at).getTime(),
-            "currentTime": new Date().getTime(),
-            "streamDuration": convertDuration(vodJson.data[0].duration)
-            }
-
 }
 
 // This function changes the image of fraeya to a new random image that is different than the previous one
@@ -201,7 +197,7 @@ changeImage()
 changeBackground()
 
 // Run the script on the start of the page
-howLongSince(getMostRecentStream(pullFraeyaVods()))
+howLongSince(pullFraeyaVods())
 
 // Set interval to update every second
-setInterval(howLongSince, 1000, getMostRecentStream(pullFraeyaVods()))
+setInterval(howLongSince, 1000, pullFraeyaVods())
