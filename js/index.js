@@ -181,8 +181,25 @@ function formatDuration(elapsedMilliseconds) {
     const minutes = Math.floor(seconds / 60);
     const hours = Math.floor(minutes / 60);
     const days = Math.floor(hours / 24);
-  
-    return `${days} days, ${hours % 24} hours, ${minutes % 60} minutes, ${seconds % 60} seconds`;
+
+    if (days > 1) {daysText = "days"} else {daysText = "day"}
+
+    if (hours > 1) {hoursText = "hours"} else {hoursText = "hour"}
+
+    if (minutes > 1) {minutesText = "minutes"} else {minutesText = "minute"}
+
+    if (seconds > 1) {daysText = "seconds"} else {daysText = "second"}
+
+    if (days == 0) {
+        if (hours == 0) {
+            if (minutes == 0) {
+                return `${seconds % 60} ${secondsText}`;
+            }
+            return `${minutes % 60} ${minutesText}, and ${seconds % 60} ${secondsText}`;
+        }
+        return `${hours % 24} ${hoursText}, ${minutes % 60} ${minutesText}, and ${seconds % 60} ${secondsText}`;
+    }
+    return `${days} ${daysText}, ${hours % 24} ${hoursText}, ${minutes % 60} ${minutesText}, and ${seconds % 60} ${secondsText}`;
 }
 
 function changeBackground() {
