@@ -15,16 +15,42 @@ let playingAudio = false
 
 let fraeyaSound;
 
+async function isFraeyaLive() {
+
+    let schedule = await scheduleToTime(pullFraeyaSchedule())
+
+    for (stream of schedule) {
+
+        scheduledDuration = stream.end - stream.start
+
+        timeSinceStart = new Date().getTime() - stream.start
+
+        // If the stream is in the future, not live
+        if (timeSinceStart < 0) {
+            continue
+        }
+        // If the scheduled duration + 5 minutes is over, the stream is in the past
+        // Probably want to include a check here to see if maybe shes going over time
+        if (timeSinceStart > scheduledDuration + 300000) {
+            continue
+        }
+        return true
+    }
+    return false
+}
+
 // This function uses the list of fraeya vods to determine the amount of time the stream has been offline for.
 // Param - JSON Promise
 async function howLongSince(vodJsonPromise) {
+
+    let live = await isFraeyaLive()
 
     vodJson = await vodJsonPromise
 
     timeInMills = (vodJson.currentTime - vodJson.streamStarted - vodJson.streamDuration)
 
-    // Update checking every 15 minutes in schedule, so on the next update, if more than 15 minutes have passed, the stream must be offline. I still hate this way of doing things...
-    if (timeInMills < 900500) {
+    // Check if Fraeya is live using a calendar setup
+    if (live) {
         document.getElementById("howLong").textContent = "Fraeya is live!!"
     } else {
         document.getElementById("howLong").textContent = `We have spent ${formatDuration(timeInMills)} missing Fraeya.`
@@ -76,11 +102,17 @@ async function pullFraeyaSchedule() {
 async function scheduleToTime(JsonPromise) {
     
     let schedulejson = await JsonPromise
+    let schedule = []
 
     for (stream of schedulejson) {
-        console.log(stream)
-        console.log(new Date(stream.begin).getTime())
+
+        schedule.push({ "start": new Date(stream.begin).getTime(),
+                        "end": new Date(stream.end).getTime(),
+                        "description": stream.description
+                    })
     }
+
+    return schedule
 
     
     
@@ -163,7 +195,7 @@ function changeBackground() {
     console.log(bgs[newRandom])
 }
 
-scheduleToTime(pullFraeyaSchedule())
+isFraeyaLive()
 
 changeImage()
 changeBackground()
