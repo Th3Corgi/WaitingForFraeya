@@ -15,6 +15,8 @@ let playingAudio = false
 
 let fraeyaSound;
 
+// This function checks the stream schedules to see if Fraeya is currently live
+// Returns - Boolean
 async function isFraeyaLive() {
 
     let schedule = await scheduleToTime(pullFraeyaSchedule())
@@ -95,6 +97,8 @@ async function pullFraeyaSchedule() {
     return response.json()
 }
 
+// This function creates a json object of the stream schedules in a usable format
+// Returns - JSON Promise of a list of json objects
 async function scheduleToTime(JsonPromise) {
     
     let schedulejson = await JsonPromise
