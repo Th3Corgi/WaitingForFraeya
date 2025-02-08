@@ -182,13 +182,13 @@ function formatDuration(elapsedMilliseconds) {
     const hours = Math.floor(minutes / 60);
     const days = Math.floor(hours / 24);
 
-    if (days > 1) {daysText = "days"} else {daysText = "day"}
+    if (days != 1) {daysText = "days"} else {daysText = "day"}
 
-    if (hours > 1) {hoursText = "hours"} else {hoursText = "hour"}
+    if (hours != 1) {hoursText = "hours"} else {hoursText = "hour"}
 
-    if (minutes > 1) {minutesText = "minutes"} else {minutesText = "minute"}
+    if (minutes != 1) {minutesText = "minutes"} else {minutesText = "minute"}
 
-    if (seconds > 1) {daysText = "seconds"} else {daysText = "second"}
+    if (seconds != 1) {secondsText = "seconds"} else {secondsText = "second"}
 
     if (days == 0) {
         if (hours == 0) {
