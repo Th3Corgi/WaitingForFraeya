@@ -2,7 +2,7 @@ from ics import Calendar
 import json
 
 # Currently manually added, will need a better way to resolve that...
-files = ["calendar\discord-event.ics", "calendar\discord-event1.ics", "calendar\discord-event2.ics"]
+files = ["./calendar/discord-event.ics", "./calendar/discord-event1.ics", "./calendar/discord-event2.ics"]
 
 events = []
 for i in files:
