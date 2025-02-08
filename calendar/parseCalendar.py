@@ -1,12 +1,13 @@
 from ics import Calendar
 import json
+from os import listdir
 
-# Currently manually added, will need a better way to resolve that...
-files = ["./calendar/discord-event.ics", "./calendar/discord-event1.ics", "./calendar/discord-event2.ics"]
+icsFiles = list(filter(lambda x: x.endswith("ics"), listdir("./calendar") ))
+
 
 events = []
-for i in files:
-    with open(i, 'r') as f:
+for i in icsFiles:
+    with open("./calendar/" + i, 'r') as f:
         c = Calendar(f.read())
 
         for e in c.events:
