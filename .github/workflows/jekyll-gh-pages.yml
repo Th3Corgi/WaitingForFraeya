@@ -39,10 +39,11 @@ jobs:
         shell: bash
         run: |
           Response=`curl -d "client_id=g1dtamfuj20t4573czjmu7mour2vfy&client_secret=$Twitch_API&grant_type=client_credentials" -H "Content-Type: application/x-www-form-urlencoded" -X POST "https://id.twitch.tv/oauth2/token" | jq -r '.access_token'`
-          curl -X GET "https://api.twitch.tv/helix/videos?user_id=611245304" -H "Authorization: Bearer $Response" -H "Client-Id: g1dtamfuj20t4573czjmu7mour2vfy" -o "${GITHUB_WORKSPACE}/js/newFile.txt"
+          curl -X GET "https://api.twitch.tv/helix/videos?user_id=611245304" -H "Authorization: Bearer $Response" -H "Client-Id: g1dtamfuj20t4573czjmu7mour2vfy" -o "${GITHUB_WORKSPACE}/TwitchVods.txt"
 
       - name: Parse Calendar
-        run: ./calendar/parseCalendar.py
+        run: |
+          python ${GITHUB_WORKSPACE}/calendar/parseCalendar.py
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
