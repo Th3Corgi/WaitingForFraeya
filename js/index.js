@@ -3,16 +3,6 @@ const images = ["images/FraeyaStaring.png", "images/FraeyaLookingMischevious.png
                 "images/cutie.jpg", "images/dreamy.jpg", "images/evil.png", "images/FraeyaPuppy.png", "images/grabbing.png", "images/sgwearfgsg.png",
                 "images/spooked.png", "images/stare.png", "images/witch.png"]
 
-//const audios = ["audio/yippee.mp3", "audio/FraeyaBwomp.mp3"]
-
-async function pullFraeyaAudios() {
-    const response = await fetch("./audio/audioList.json")
-
-    return response.json()
-    
-}
-
-
 const bgs = ["bg/19-1024x576.png", "bg/20-1024x576.png"]
 
 let previousImage = -1
@@ -140,9 +130,9 @@ function playAudio(audio) {
 //
 async function playFraeyaSound() {
 
-    let audios = await pullFraeyaAudios()
-
     if (!playingAudio) {
+
+        let audios = await pullFraeyaAudios()
 
         playingAudio = true
         document.getElementById("SoundButton").style.opacity = .6
@@ -164,6 +154,15 @@ async function playFraeyaSound() {
         document.getElementById("SoundButton").style.opacity = 1
 
     }
+}
+
+// This function pulls the json from the audioList.json
+// Returns - JSON Promise
+async function pullFraeyaAudios() {
+    const response = await fetch("./audio/audioList.json")
+
+    return response.json()
+    
 }
 
 // This function converts *h*m*s string into miliseconds
