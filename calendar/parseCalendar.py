@@ -26,7 +26,7 @@ for i in icsFiles:
 print(json.dumps(events))
 
 # Dump the json list into a new file
-with open("calendar\streams.json", "w+") as f:
+with open("./calendar/streams.json", "w+") as f:
     f.write(json.dumps(events))
 
 
