@@ -42,6 +42,7 @@ h4 {
 }
 
 #FraeyaImage {
+  min-height: 40vmin;
   max-height: 40vmin;
   height: 100%;
   width: auto;
