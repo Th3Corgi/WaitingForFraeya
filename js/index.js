@@ -5,9 +5,9 @@ const images = ["images/FraeyaStaring.png", "images/FraeyaLookingMischevious.png
 
 const bgs = ["bg/19-1024x576.png", "bg/20-1024x576.png"]
 
-let previousImage = -1
+let previousImage = [-1,-1,-1]
 
-let previousAudio = -1
+let previousAudio = [-1,-1,-1]
 
 let playingAudio = false
 
@@ -39,11 +39,14 @@ async function isFraeyaLive() {
     return false
 }
 
+// This function uses the Fraeya schedule to check when the next stream is!
+//
 async function whenNextStream() {
 
     let nextStream;
     let live = await isFraeyaLive()
 
+    // If we are live, we don't care!
     if (!live) {
 
         let schedule = await scheduleToTime(pullFraeyaSchedule())
@@ -54,8 +57,9 @@ async function whenNextStream() {
 
             timeSinceStart = new Date().getTime() - stream.start
 
-            // If the stream is in the future, not live
+            // If the stream is in the future, its soon
             if (timeSinceStart < 0) {
+                // Find the closest stream on the schedule
                 if (nextStream == undefined || stream.start < nextStream.start) {
                     nextStream = stream
                 }
@@ -70,6 +74,7 @@ async function whenNextStream() {
             document.getElementById("headerBanner").innerHTML = `Next Fraeya Stream: ${formatDuration(nextStream.start - currentTime.getTime())} <br><text style="font-size:2rem"> ${nextStream.description}</text>`
         }
     } else {
+        // Delete the header if we are live
         document.getElementById("header").outerHTML = ""
     }
 
@@ -102,13 +107,16 @@ async function howLongSince(vodJsonPromise) {
 }
 
 // This function changes the image of fraeya to a new random image that is different than the previous one
+//
 function changeImage() {
     
     newRandom = -1
-    while (newRandom == previousImage || newRandom == -1) {
+    while (previousImage.includes(newRandom) || newRandom == -1) {
         newRandom = Math.floor(Math.random() * images.length)
     }
-    previousImage = newRandom
+    // FIFO images to maintain unique up to 3
+    previousImage.shift()
+    previousImage.push(newRandom)
 
     document.getElementById("FraeyaImage").src = images[newRandom]
 }
@@ -148,8 +156,6 @@ async function scheduleToTime(JsonPromise) {
 
     return schedule
 
-    
-    
 }
 
 // This function creates a javascript promise for playing audio
@@ -174,11 +180,13 @@ async function playFraeyaSound() {
         document.getElementById("SoundButton").style.opacity = .6
 
         newRandom = -1
-        while (newRandom == previousAudio || newRandom == -1) {
+        while (previousAudio.includes(newRandom) || newRandom == -1) {
             newRandom = Math.floor(Math.random() * audios.length)
         }
 
-        previousAudio = newRandom
+        // FIFO audios to maintain unique up to 3
+        previousAudio.shift()
+        previousAudio.push(newRandom)
 
         let fraeyaSound = new Audio("./audio/" + audios[newRandom])
 
@@ -247,28 +255,24 @@ function formatDuration(elapsedMilliseconds) {
     return `${days} ${daysText}, ${hours % 24} ${hoursText}, ${minutes % 60} ${minutesText}, and ${seconds % 60} ${secondsText}`;
 }
 
+// This function changes the background!
+//
 function changeBackground() {
     newRandom = Math.floor(Math.random() * bgs.length)
 
-    console.log(newRandom)
-
     document.body.style.backgroundImage = `url(${bgs[newRandom]})`
 
-    console.log(bgs[newRandom])
 }
 
+// Run the scripts on the start of the page
 isFraeyaLive()
 whenNextStream()
-
 pullFraeyaAudios()
-
 changeImage()
 changeBackground()
-
-setInterval(whenNextStream, 1000)
-
-// Run the script on the start of the page
 howLongSince(pullFraeyaVods())
+
 
 // Set interval to update every second
 setInterval(howLongSince, 1000, pullFraeyaVods())
+setInterval(whenNextStream, 1000)
