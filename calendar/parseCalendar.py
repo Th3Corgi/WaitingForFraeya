@@ -8,7 +8,7 @@ icsFiles = list(filter(lambda x: x.endswith("ics"), listdir("./calendar") ))
 events = []
 
 for i in icsFiles:
-    with open("./calendar/" + i, 'r') as f:
+    with open("./calendar/" + i, 'r', encoding="utf-8") as f:
         c = Calendar(f.read())
 
         # Read the file and create a calendar dict object

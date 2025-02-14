@@ -39,6 +39,42 @@ async function isFraeyaLive() {
     return false
 }
 
+async function whenNextStream() {
+
+    let nextStream;
+    let live = await isFraeyaLive()
+
+    if (!live) {
+
+        let schedule = await scheduleToTime(pullFraeyaSchedule())
+
+        for (stream of schedule) {
+
+            scheduledDuration = stream.end - stream.start
+
+            timeSinceStart = new Date().getTime() - stream.start
+
+            // If the stream is in the future, not live
+            if (timeSinceStart < 0) {
+                if (nextStream == undefined || stream.start < nextStream.start) {
+                    nextStream = stream
+                }
+            }
+        }
+
+        currentTime = new Date()
+
+        if (nextStream == undefined) {
+            document.getElementById("headerBanner").textContent = "Next Fraeya Stream: Unknown!"
+        } else {
+            document.getElementById("headerBanner").innerHTML = `Next Fraeya Stream: ${formatDuration(nextStream.start - currentTime.getTime())} <br><text style="font-size:2rem"> ${nextStream.description}</text>`
+        }
+    } else {
+        document.getElementById("header").outerHTML = ""
+    }
+
+}
+
 // This function uses the list of fraeya vods to determine the amount of time the stream has been offline for.
 // Param - JSON Promise
 async function howLongSince(vodJsonPromise) {
@@ -222,11 +258,14 @@ function changeBackground() {
 }
 
 isFraeyaLive()
+whenNextStream()
 
 pullFraeyaAudios()
 
 changeImage()
 changeBackground()
+
+setInterval(whenNextStream, 1000)
 
 // Run the script on the start of the page
 howLongSince(pullFraeyaVods())
