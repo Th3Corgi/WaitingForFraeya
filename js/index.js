@@ -69,7 +69,7 @@ async function whenNextStream() {
         currentTime = new Date()
 
         if (nextStream == undefined) {
-            document.getElementById("headerBanner").textContent = `<text style="font-size:2rem">Next Fraeya Stream: Unknown!</text>`
+            document.getElementById("headerBanner").innerHTML = `<text style="font-size:2rem">Next Fraeya Stream: Unknown!</text>`
         } else {
             document.getElementById("headerBanner").innerHTML = `<text style="font-size:2rem">Next Fraeya Stream: ${formatDuration(nextStream.start - currentTime.getTime())}</text><br><text style="font-size:1rem"> ${nextStream.description}</text>`
         }
