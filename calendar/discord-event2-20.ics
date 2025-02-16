@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:dc720b5d-88ad-493d-8a47-19e5b048d03a
+SEQUENCE:0
+DTSTAMP:20250216T192406Z
+DTSTART:20250221T010000Z
+DTEND:20250221T030000Z
+SUMMARY:Fraeya Working Out!
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Ring Fit Adventure workout night! (⚠ sussy sounds\, please u
+ se headphones!)
+END:VEVENT
+END:VCALENDAR
