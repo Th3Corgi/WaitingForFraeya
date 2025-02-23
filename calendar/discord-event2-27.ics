@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:2262d176-cb8e-47f7-89b3-f06b98f0a912
+SEQUENCE:0
+DTSTAMP:20250223T213243Z
+DTSTART:20250228T010000Z
+DTEND:20250228T030000Z
+SUMMARY:Ring Fit fingers crossed
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Ring Fit Adventure workout night! Get sweaty with wolf mom\, a
+ woo~
+END:VEVENT
+END:VCALENDAR
