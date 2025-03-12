@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:d753abce-f401-449b-9736-d00b06cef5e3
+SEQUENCE:0
+DTSTAMP:20250312T021955Z
+DTSTART:20250314T000000Z
+DTEND:20250315T020000Z
+SUMMARY:Mon Hun part 300
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:More Monster Hunter Wilds~ 🍖 Getting our revenge on that st
+ inky Arkveld 💢
+END:VEVENT
+END:VCALENDAR
