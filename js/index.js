@@ -125,9 +125,7 @@ function changeImage() {
 // Returns - JSON Promise
 async function pullFraeyaVods() {
     
-    const response = await fetch("./TwitchVods.txt")
-
-    return response.json()
+    return {"data":[{"id":"2405029526","stream_id":"318851016829","user_id":"611245304","user_login":"fraeya","user_name":"Fraeya","title":"OFFICE LADY RAGING AT VIDEO GAMES 💢  | PLUSHIE OUT NOW → !plushie","description":"","created_at":"2025-03-14T00:00:14Z","published_at":"2025-03-14T00:00:14Z","url":"https://www.twitch.tv/videos/2405029526","thumbnail_url":"https://static-cdn.jtvnw.net/cf_vods/d1m7jfoe9zdc1j/a1ece504083307c103fe_fraeya_318851016829_1741910409//thumb/thumb0-%{width}x%{height}.jpg","viewable":"public","view_count":15,"language":"en","type":"archive","duration":"2h4m29s","muted_segments":null}]}
 
 }
 
