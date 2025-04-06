@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:4639dbec-0720-459d-8cdf-0f58558965f2
+SEQUENCE:0
+DTSTAMP:20250406T232704Z
+DTSTART:20250408T000000Z
+DTEND:20250408T020000Z
+SUMMARY:Monster Hunter Wilds!!!
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Monster Hunter Monday! Let's grind our HR up and fight the new
+  monsters 💪🏻
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:77320f2c-f6f8-4e8a-9bcd-f983de6baedd
+SEQUENCE:0
+DTSTAMP:20250406T232729Z
+DTSTART:20250409T180000Z
+DTEND:20250409T220000Z
+SUMMARY:New Microphone??
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Trying out my new microphone! Super sensitive tingles right in
+  your ears 🎙🤍
+END:VEVENT
+END:VCALENDAR
