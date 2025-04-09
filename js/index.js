@@ -94,6 +94,10 @@ async function howLongSince(vodJsonPromise) {
 
     streamDuration = convertDuration(vodJson.data[0].duration)
 
+    if (streamDuration == undefined) {
+        streamDuration = convertDuration(vodJson.data[1].duration)
+    }
+
     timeInMills = (currentTime.getTime() - streamStarted.getTime() - streamDuration)
 
     // Check if Fraeya is live using a calendar setup
