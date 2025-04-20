@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:b236bd3a-e007-4d16-a6a4-75ed7a6530e7
+SEQUENCE:0
+DTSTAMP:20250420T225359Z
+DTSTART:20250421T190000Z
+DTEND:20250421T230000Z
+SUMMARY:Potion Craft
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Playing the Potion Craft update! 🌱 Let's raise the !swear c
+ ounter
+END:VEVENT
+END:VCALENDAR

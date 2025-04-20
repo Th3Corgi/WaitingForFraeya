@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:cbb0016d-6100-4b39-aa4a-8d6d0ba869dc
+SEQUENCE:0
+DTSTAMP:20250420T225419Z
+DTSTART:20250424T180000Z
+DTEND:20250424T210000Z
+SUMMARY:Minecwaft!!!
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Playing on our community Minecraft server~ Naming my 64 pet wo
+ lves after you! 🐺
+END:VEVENT
+END:VCALENDAR
