@@ -1,7 +1,7 @@
 
 const images = ["images/FraeyaStaring.png", "images/FraeyaLookingMischevious.png", "images/FraeyaLaugh.png", "images/fritch.jpg", "images/awfawfawef.png",
                 "images/cutie.jpg", "images/dreamy.jpg", "images/evil.png", "images/FraeyaPuppy.png", "images/grabbing.png", "images/sgwearfgsg.png",
-                "images/spooked.png", "images/stare.png", "images/witch.png"]
+                "images/spooked.png", "images/stare.png", "images/witch.png", "images/disapprove.png", "images/sexglasses.png", "images/lewdPull.png"]
 
 const bgs = ["bg/19-1024x576.png", "bg/20-1024x576.png"]
 
