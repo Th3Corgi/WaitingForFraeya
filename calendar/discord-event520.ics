@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:f4c78a43-f901-4e3c-8d70-c4cc007d0937
+SEQUENCE:0
+DTSTAMP:20250519T194624Z
+DTSTART:20250520T180000Z
+DTEND:20250520T220000Z
+SUMMARY:Catchup Yapping and Tapping!!
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Catch up chatting whispers + comfy ASMR tingles because wolf m
+ om is back home (& she missed you so much!!)🐺
+END:VEVENT
+END:VCALENDAR
