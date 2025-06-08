@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:b5e80223-84a2-44c7-8765-b13defe1436c
+SEQUENCE:0
+DTSTAMP:20250608T174753Z
+DTSTART:20250613T000000Z
+DTEND:20250613T020000Z
+SUMMARY:RING FIT FINGERS CROSSED
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:More gaming night❕❕ Ring Fit workout or more Pokemon Snap 
+ depending on my body condition💦
+END:VEVENT
+END:VCALENDAR

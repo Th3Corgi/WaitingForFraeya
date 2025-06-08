@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:5771a48c-d83d-4876-988c-48b1ef0dd37d
+SEQUENCE:0
+DTSTAMP:20250608T174801Z
+DTSTART:20250613T180000Z
+DTEND:20250613T200000Z
+SUMMARY:Eating Lunch Together
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Lets eat lunch together! Afternoon eating & chatting 🍣🤍
+END:VEVENT
+END:VCALENDAR
