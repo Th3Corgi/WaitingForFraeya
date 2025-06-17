@@ -74,8 +74,12 @@ async function whenNextStream() {
             document.getElementById("headerBanner").innerHTML = `<text style="font-size:2rem">Next Fraeya Stream: ${formatDuration(nextStream.start - currentTime.getTime())}</text><br><text style="font-size:1rem"> ${nextStream.description}</text>`
         }
     } else {
-        // Delete the header if we are live
-        document.getElementById("header").outerHTML = ""
+        try {
+            // Delete the header if we are live
+            document.getElementById("header").outerHTML = ""
+        } catch {
+            // You already deleted it silly goose
+        }
     }
 
 }
