@@ -59,7 +59,7 @@ for s in streams:
         diff = s["begin"] - now
         
         days = int(diff // 86400) 
-        hours = int(diff // 3600)
+        hours = int((diff % 86400) // 3600)
         minutes = int((diff % 3600) // 60)
         seconds = int(diff % 60)
         
