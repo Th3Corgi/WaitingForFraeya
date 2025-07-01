@@ -51,6 +51,12 @@ jobs:
           python ${GITHUB_WORKSPACE}/calendar/parseCalendar.py
           python ${GITHUB_WORKSPACE}/audio/prepareAudios.py
 
+      - name: Set Time in Description
+        run: |
+          CONTENT=$(cat ${GITHUB_WORKSPACE}/calendar/nextStream.txt | sed 's/[[\.*^$()+{}|]/\\&/g')
+          echo "CONTENT: $CONTENT"
+          sed -i "s|<meta property=\"og:description\" content=\".*\">|<meta property=\"og:description\" content=\"$CONTENT\">|g" ${GITHUB_WORKSPACE}/index.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
