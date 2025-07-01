@@ -70,7 +70,7 @@ for s in streams:
         if seconds: parts.append(f"{seconds} seconds until stream!")
         
         with open("./calendar/nextStream.txt", "w+", encoding="utf-8") as f:
-            f.write(f"Next Stream: {s["description"]}\n{" ".join(parts) if parts else "Fraeya is Live!!!"}")
+            f.write(f"Next Stream: {s["description"]} {" ".join(parts) if parts else "Fraeya is Live!!!"}")
         break
     
     with open("./calendar/nextStream.txt", "w+") as f:
