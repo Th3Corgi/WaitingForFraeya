@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:9e274642-5956-40cc-a2ec-68ef236a98fe
+SEQUENCE:0
+DTSTAMP:20250706T183744Z
+DTSTART:20250710T180000Z
+DTEND:20250710T200000Z
+SUMMARY:Trucking along
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Continuing our isekai training with more Truck Driver Sim❕
+ ❕
+END:VEVENT
+END:VCALENDAR

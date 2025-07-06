@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:0a6cfde8-aa64-43df-8813-b36ef9a99df1
+SEQUENCE:0
+DTSTAMP:20250706T183751Z
+DTSTART:20250712T000000Z
+DTEND:20250712T020000Z
+SUMMARY:TANABATA ASMR
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Celebrate the tanabata star festival together with me\, and ma
+ ke your wish 🎋 Let's make it come true together! ✨
+END:VEVENT
+END:VCALENDAR
