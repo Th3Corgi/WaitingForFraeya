@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:30ed6bad-4d5a-4c2c-9448-4d8577501867
+SEQUENCE:0
+DTSTAMP:20250714T193146Z
+DTSTART:20250719T000000Z
+DTEND:20250719T020000Z
+SUMMARY:Fraeya Friday ASMR
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:A special handcam ASMR night for Twitch! 🫶🏻 Making and p
+ laying with super cute slimes!
+END:VEVENT
+END:VCALENDAR
