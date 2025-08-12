@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:56e006db-a1a6-4ea9-a451-fce200026767
+SEQUENCE:0
+DTSTAMP:20250812T225732Z
+DTSTART:20250813T180000Z
+DTEND:20250813T210000Z
+SUMMARY:Catchup ASMR
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:I'M BACK❕❕ Chatting & catching up with you about my lil tr
+ ip → then\, ASMR night 🤍
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:1fd77c4d-ad58-4ca4-ae17-6e622ee0ad81
+SEQUENCE:0
+DTSTAMP:20250812T225740Z
+DTSTART:20250815T000000Z
+DTEND:20250815T020000Z
+SUMMARY:Monster Hunting!!
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Monster Hunter Wilds! Let's hunt monsters with the calopups!! 
+ ⚔
+END:VEVENT
+END:VCALENDAR
