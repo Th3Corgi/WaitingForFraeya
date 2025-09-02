@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:619ef018-a84c-4075-be0a-334a0be83ff5
+SEQUENCE:0
+DTSTAMP:20250902T032106Z
+DTSTART:20250905T000000Z
+DTEND:20250906T020000Z
+SUMMARY:Candle Crafting!!!
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Handcam cozy crafting time! Making cute fall candles for you!!
+  🕯🍂
+END:VEVENT
+END:VCALENDAR
