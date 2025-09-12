@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:5c2949c8-42d7-480f-81b9-bc60bf2c2a6b
+SEQUENCE:0
+DTSTAMP:20250912T233015Z
+DTSTART:20250913T180000Z
+DTEND:20250913T210000Z
+SUMMARY:Fraeya MINECRAFT SPEEDRUN
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:⛏️ Event: Diamond Dash! 💎\n🗓 Event Date: Saturday\, 
+ September 13th 2025 ✅   \n\nJoin myself and over 30+ other vtubers for 2
+  hours as we start in a new world and compete against one another to see w
+ ho will gather the most diamonds and win a cash prize!~
+END:VEVENT
+END:VCALENDAR
