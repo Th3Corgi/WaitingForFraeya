@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:cb7a0f04-6bb8-4bff-a94b-fa76608c885a
+SEQUENCE:0
+DTSTAMP:20250921T185436Z
+DTSTART:20250926T220000Z
+DTEND:20250927T000000Z
+SUMMARY:Fraeya-Tac-Toes!!!
+LOCATION:https://www.twitch.tv/filian
+DESCRIPTION:I'll be a guest on @filianIsLost's channel for Tic-Tac-Tuber g
+ ameshow night❕🫶🏻
+END:VEVENT
+END:VCALENDAR

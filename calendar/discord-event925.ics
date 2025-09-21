@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:dc650747-b2dc-4313-9a5e-6df68a358cbd
+SEQUENCE:0
+DTSTAMP:20250921T185431Z
+DTSTART:20250926T000000Z
+DTEND:20250926T020000Z
+SUMMARY:Fraeya Crafting Stream!!!
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Comfy handcam crafting stream\, making a miniature cafe ☕
+END:VEVENT
+END:VCALENDAR
