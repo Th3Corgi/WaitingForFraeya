@@ -52,7 +52,7 @@ for s in streams:
         # currently live
         with open("./calendar/nextStream.txt", "w+") as f:
             f.write(f"Next Stream: Currently Live!!!")
-        break
+        exit()
         
     if s["begin"] > now:
         # Soon to be live
@@ -71,9 +71,9 @@ for s in streams:
         
         with open("./calendar/nextStream.txt", "w+", encoding="utf-8") as f:
             f.write(f"Next Stream: {s["description"]} {" ".join(parts) if parts else "Fraeya is Live!!!"}")
-        break
+        exit()
         
-    break
+    exit()
 
 with open("./calendar/nextStream.txt", "w+") as f:
         f.write(f"Next Stream: Unknown!")
