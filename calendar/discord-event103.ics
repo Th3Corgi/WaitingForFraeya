@@ -2,14 +2,13 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//sebbo.net//ical-generator//EN
 BEGIN:VEVENT
-UID:7dfc0e35-f64a-475c-ace0-a65d988888de
+UID:d39a064e-e8da-467e-9880-d948390c04f1
 SEQUENCE:0
-DTSTAMP:20250921T195932Z
-DTSTART:20251003T220000Z
-DTEND:20251004T000000Z
-SUMMARY:Fraeya-Tac-Toes!!!
-LOCATION:https://www.twitch.tv/filian
-DESCRIPTION:I'll be a guest on @filianIsLost's channel for Tic-Tac-Tuber g
- ameshow night❕🫶🏻
+DTSTAMP:20250930T225032Z
+DTSTART:20251004T000000Z
+DTEND:20251004T020000Z
+SUMMARY:Fraeya ASMR Friday
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Let's end the week on a comfy note with ASMR evening. 🤍
 END:VEVENT
 END:VCALENDAR
