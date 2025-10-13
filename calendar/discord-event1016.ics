@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:672ee005-1eea-4297-bad8-1b36fd5a655a
+SEQUENCE:0
+DTSTAMP:20251013T192401Z
+DTSTART:20251017T000000Z
+DTEND:20251017T020000Z
+SUMMARY:Pumpkin Carving!!!
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Handcam stream time! Let's carve a cute pumpkin together! 🎃
+ 🤍
+END:VEVENT
+END:VCALENDAR
