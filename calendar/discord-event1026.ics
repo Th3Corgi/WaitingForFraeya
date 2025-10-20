@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:4195a6b3-c304-4013-9ac3-7ae24fdd4e6d
+SEQUENCE:0
+DTSTAMP:20251020T153535Z
+DTSTART:20251026T230000Z
+DTEND:20251027T000000Z
+SUMMARY:Meet and Greet at TSUMICON
+LOCATION:Tsumicon TX
+DESCRIPTION:Meet and greet at Tsumicon TX! So excited! If you're there\, p
+ lease stop by and say hello! 🫶🏻
+END:VEVENT
+END:VCALENDAR

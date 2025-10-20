@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:6e54be1c-b75c-4048-becc-9009a334d020
+SEQUENCE:0
+DTSTAMP:20251020T153509Z
+DTSTART:20251021T220000Z
+DTEND:20251022T000000Z
+SUMMARY:Fraeya Catches Cuties
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Starting Pokemon Legends Z-A❕❕ So excited to catch cute Po
+ kemon with you!
+END:VEVENT
+END:VCALENDAR
