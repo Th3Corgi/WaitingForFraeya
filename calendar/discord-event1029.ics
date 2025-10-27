@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:9fca575b-80a4-4443-bb67-f43c8377d5e2
+SEQUENCE:0
+DTSTAMP:20251027T155558Z
+DTSTART:20251029T180000Z
+DTEND:20251029T200000Z
+SUMMARY:Fraeya ASMR Afternoon!!!
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Comfy fall ASMR afternoon~ Let's stay inside and stay warm and
+  cozy!
+END:VEVENT
+END:VCALENDAR
