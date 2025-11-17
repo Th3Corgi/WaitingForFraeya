@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:8fe681da-d677-489a-a3b4-bddf8885784e
+SEQUENCE:0
+DTSTAMP:20251117T003912Z
+DTSTART:20251118T190000Z
+DTEND:20251118T210000Z
+SUMMARY:ASMR AfterAWOOOOn
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Join us for a cozy ASMR afternoon with lots of comfy vibes and
+  tingles! 🤍
+END:VEVENT
+END:VCALENDAR

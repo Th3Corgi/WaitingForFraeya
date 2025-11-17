@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:6ac51106-7114-43ef-a2af-9393552d0a50
+SEQUENCE:0
+DTSTAMP:20251117T003856Z
+DTSTART:20251121T010000Z
+DTEND:20251121T030000Z
+SUMMARY:HandCANDLE making stream! How pleascent
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Handcam stream! Making cute\, fall scented candles for you~ 
+ 🎃🕯
+END:VEVENT
+END:VCALENDAR
