@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:d05bae65-45ed-43b5-bd2d-ccf99b5b87de
+SEQUENCE:0
+DTSTAMP:20251124T023840Z
+DTSTART:20251128T010000Z
+DTEND:20251128T030000Z
+SUMMARY:FRANKSGIVING HANDCAM
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Handcam stream! Let's celebrate the Thanksgiving holiday toget
+ her with a charcuterie board and wine~ 🍷
+END:VEVENT
+END:VCALENDAR
