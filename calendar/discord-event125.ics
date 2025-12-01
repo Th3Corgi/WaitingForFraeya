@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:479eab83-b64e-4371-a568-6ee17d8183c1
+SEQUENCE:0
+DTSTAMP:20251201T041237Z
+DTSTART:20251206T010000Z
+DTEND:20251207T030000Z
+SUMMARY:FraeyASMR Friday!!!!
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Snuggle up and get cozy with a comfy ASMR stream to end the we
+ ek! 💤
+END:VEVENT
+END:VCALENDAR
