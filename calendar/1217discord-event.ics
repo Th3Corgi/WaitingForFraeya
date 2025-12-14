@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:8d50ba25-e6a2-458e-ad4c-62737eef5baa
+SEQUENCE:0
+DTSTAMP:20251214T214527Z
+DTSTART:20251218T010000Z
+DTEND:20251218T030000Z
+SUMMARY:Karaoke Night!
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Let's party!! Drinking and Christmas songs karaoke night! 🥂
+  Yippee
+END:VEVENT
+END:VCALENDAR
