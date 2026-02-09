@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:dc6e7c4f-fa95-404c-bbcb-9b3859aa5ee3
+SEQUENCE:0
+DTSTAMP:20260209T035340Z
+DTSTART:20260211T010000Z
+DTEND:20260212T030000Z
+SUMMARY:Chiikawa Chocolates!
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Making chiikawa chocolates for you! 🍫 Will be gifting them 
+ to the top sub gifters for Valentines Day!
+END:VEVENT
+END:VCALENDAR
