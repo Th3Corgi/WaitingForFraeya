@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sebbo.net//ical-generator//EN
+BEGIN:VEVENT
+UID:4316b681-82af-4053-b941-803e5bf89506
+SEQUENCE:0
+DTSTAMP:20260215T233849Z
+DTSTART:20260218T190000Z
+DTEND:20260218T210000Z
+SUMMARY:Hump Fraeya Day ASMR
+LOCATION:https://www.twitch.tv/fraeya
+DESCRIPTION:Time for a comfy ASMR afternoon\, let me spoil you with lots o
+ f tingly triggers! 🎧🤍
+END:VEVENT
+END:VCALENDAR
