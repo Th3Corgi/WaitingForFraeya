@@ -1,5 +1,4 @@
 import json
-from os import listdir
 from datetime import datetime, timezone
 
 

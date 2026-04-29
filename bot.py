@@ -68,8 +68,5 @@ async def hourly_task():
         
         main = repo.remote('origin')
         main.push()
-        
-        
-    
 
 client.run(os.getenv('discordToken'))
