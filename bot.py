@@ -15,7 +15,6 @@ logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
 load_dotenv()
 
-token = os.getenv("githubPAT")
 intents = discord.Intents.default()
 
 intents.guild_scheduled_events = True
@@ -47,14 +46,21 @@ async def hourly_task():
             
             if (s.creator_id in validEventCreators):
                 
-                events.append({
-                    "begin":s.start_time.isoformat(),
-                    "end": s.end_time.isoformat(),
-                    "description": s.description,
-                    "location": s.location,
-                    "name": s.name,
-                    "image": s.cover_image.url
-                })
+                e = {}
+                if (s.start_time):
+                    e["begin"] = s.start_time.isoformat()
+                if (s.end_time):
+                    e["end"] = s.end_time.isoformat()
+                if (s.description):
+                    e["description"] = s.description,
+                if (s.location):
+                    e["location"] = s.location
+                if (s.name):
+                    e["name"] = s.name
+                if (s.cover_image):
+                    e["image"] = s.cover_image.url
+                    
+                events.append(e)
                 
     previous = {}
     with open("calendar/streams.json", "r+") as f:
@@ -70,16 +76,10 @@ async def hourly_task():
             logging.info("Changes Detected")
             repo = Repo(gitrepo)
             repo.index.add(['calendar/streams.json'])
-            repo.index.commit(f"Event Update: {datetime.now().strftime('%d/%m/%Y, %H:%M:%S')}")
+            repo.index.commit(f"Event Update: {datetime.now().strftime("%d/%m/%Y, %H:%M:%S")}")
             
             origin = repo.remote('origin')
-            url = origin.url
 
-            # inject token into https URL
-            if url.startswith("https://"):
-                url = url.replace("https://", f"https://{token}@")
-
-            origin.set_url(url)
             origin.push()
             logging.info("Pushed.")
         except Exception:
