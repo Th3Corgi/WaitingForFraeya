@@ -62,11 +62,25 @@ async def hourly_task():
                     
                 events.append(e)
                 
-    previous = {}
-    with open("calendar/streams.json", "r+") as f:
-        previous = json.load(f)
-        
-    if (previous == events):
+                
+    repo = Repo(gitrepo)
+
+    origin = repo.remote('origin')
+    origin.fetch()
+    
+    # 2. Get the remote commit
+    remote_commit = repo.commit("origin/main")
+
+    # 3. Read file from that commit tree
+    blob = remote_commit.tree / "calendar/streams.json"
+    remote_content = blob.data_stream.read().decode("utf-8")
+
+    # 4. Parse JSON
+    previousData = json.loads(remote_content)
+
+    logging.info(previousData)
+    logging.info(events)
+    if (previousData == events):
         logging.info("No change in events.")
     else:               
         with open("calendar/streams.json", "w+") as f:
@@ -77,8 +91,6 @@ async def hourly_task():
             repo = Repo(gitrepo)
             repo.index.add(['calendar/streams.json'])
             repo.index.commit(f"Event Update: {datetime.now().strftime("%d/%m/%Y, %H:%M:%S")}")
-            
-            origin = repo.remote('origin')
 
             origin.push()
             logging.info("Pushed.")
