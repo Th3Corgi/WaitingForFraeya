@@ -7,11 +7,15 @@ from discord.ext import tasks
 import json
 from git import Repo
 from datetime import datetime
+import logging
+import sys
 
 gitrepo = '.git'
-token = os.getenv("githubPAT")
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
 load_dotenv()
+
+token = os.getenv("githubPAT")
 intents = discord.Intents.default()
 
 intents.guild_scheduled_events = True
@@ -24,13 +28,13 @@ validEventCreators = [131572993242431488, 1005892341686616216, 18122801243016397
 
 @client.event
 async def on_ready():
-    print(f'We have logged in as {client.user}')
+    logging.info(f'We have logged in as {client.user}')
     if not hourly_task.is_running():
         hourly_task.start()
     
 @tasks.loop(hours=1)
 async def hourly_task():
-    print("Hour passed!")
+    logging.info("Hour passed!")
     
     events = []
 
@@ -57,29 +61,29 @@ async def hourly_task():
         previous = json.load(f)
         
     if (previous == events):
-        print("No change in events.")
+        logging.info("No change in events.")
     else:               
         with open("calendar/streams.json", "w+") as f:
             f.write(json.dumps(events))
             
         try:
-            print("Changes Detected")
+            logging.info("Changes Detected")
             repo = Repo(gitrepo)
             repo.index.add(['calendar/streams.json'])
             repo.index.commit(f"Event Update: {datetime.now().strftime('%d/%m/%Y, %H:%M:%S')}")
             
             origin = repo.remote('origin')
-            base_url = origin.url
+            url = origin.url
 
-            auth_url = base_url.replace(
-                "https://",
-                f"https://{token}@"
-            )
+            # inject token into https URL
+            if url.startswith("https://"):
+                url = url.replace("https://", f"https://{token}@")
 
-            origin.push(refspec="main:main", env={"GIT_ASKPASS": "true"})
-            print("Pushed.")
+            origin.set_url(url)
+            origin.push()
+            logging.info("Pushed.")
         except Exception:
-            print("Git Failed")
+            logging.error("Git Failed")
             raise
         
 
