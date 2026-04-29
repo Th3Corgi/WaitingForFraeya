@@ -31,7 +31,7 @@ async def on_ready():
     if not hourly_task.is_running():
         hourly_task.start()
     
-@tasks.loop(hours=1)
+@tasks.loop(minutes=1)
 async def hourly_task():
     logging.info("Hour passed!")
     
@@ -82,14 +82,17 @@ async def hourly_task():
     logging.info(previousData)
     logging.info(events)
     
-    if (previousData == events):
+    oldStartTimes = {item["begin"] for item in previousData}
+    newStartTimes = {item["begin"] for item in events}
+        
+    
+    if (oldStartTimes == newStartTimes):
         logging.info("No change in events.")
     else:               
         with open("calendar/streams.json", "w+") as f:
             f.write(json.dumps(events))
             
         try:
-            origin.pull("main")
             
             logging.info("Changes Detected")
             repo.index.add(['calendar/streams.json'])
