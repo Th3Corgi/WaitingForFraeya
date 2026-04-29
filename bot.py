@@ -31,7 +31,7 @@ async def on_ready():
     if not hourly_task.is_running():
         hourly_task.start()
     
-@tasks.loop(minutes=1)
+@tasks.loop(hours=1)
 async def hourly_task():
     logging.info("Hour passed!")
     
@@ -66,17 +66,12 @@ async def hourly_task():
     repo = Repo(gitrepo)
 
     origin = repo.remote('origin')
-    
     origin.fetch()
-    
-    # 2. Get the remote commit
     remote_commit = repo.commit("origin/main")
 
-    # 3. Read file from that commit tree
     blob = remote_commit.tree / "calendar/streams.json"
     remote_content = blob.data_stream.read().decode("utf-8")
 
-    # 4. Parse JSON
     previousData = json.loads(remote_content)
 
     logging.info(previousData)
@@ -91,7 +86,6 @@ async def hourly_task():
     else:               
         with open("calendar/streams.json", "w+") as f:
             f.write(json.dumps(events))
-            
         try:
             
             logging.info("Changes Detected")
