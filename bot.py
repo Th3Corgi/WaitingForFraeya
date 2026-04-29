@@ -5,7 +5,10 @@ import os
 from dotenv import load_dotenv
 from discord.ext import tasks
 import json
-import time
+from git import Repo
+from datetime import datetime
+
+gitrepo = '.git'
 
 load_dotenv()
 intents = discord.Intents.default()
@@ -34,19 +37,10 @@ async def hourly_task():
     for guild in client.guilds:
         # if guild.id == fraeya server id
         
-        
-        
         # for each scheduled event
         for s in guild.scheduled_events:
             
             if (s.creator_id in validEventCreators):
-                print(s.cover_image)
-                print(s.name)
-                print(s.creator)
-                print(s.creator_id)
-                print(s.description)
-                print(s.start_time)
-                print(s.end_time)
                 
                 events.append({
                     "begin":s.start_time.isoformat(),
@@ -56,12 +50,26 @@ async def hourly_task():
                     "name": s.name,
                     "image": s.cover_image.url
                 })
-                print(events)
                 
-        print(events)
-                
-    with open("calendar/streams.json", "w+") as f:
-        f.write(json.dumps(events))
+        
+    previous = {}
+    with open("calendar/streams.json", "r+") as f:
+        previous = json.load(f)
+        
+    if (previous == events):
+        print("No change in events.")
+    else:               
+        with open("calendar/streams.json", "w+") as f:
+            f.write(json.dumps(events))
+            
+        repo = Repo(gitrepo)
+        repo.index.add(['calendar/streams.json'])
+        repo.index.commit(f"Event Update: {datetime.now().strftime("%d/%m/%Y, %H:%M:%S")}")
+        
+        main = repo.remote('origin')
+        main.push()
+        
+        
     
 
 client.run(os.getenv('discordToken'))
