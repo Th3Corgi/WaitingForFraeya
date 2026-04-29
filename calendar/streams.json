@@ -1,1 +1,9 @@
-[{"begin": "2026-04-29T05:15:00.552000+00:00", "end": "2026-04-29T07:15:00.552000+00:00", "description": "Hello!!", "location": "fraeya", "name": "events now awoooga", "image": "https://cdn.discordapp.com/guild-events/1498896704764776489/e87f578657b72560a8f679285d8dc41b.png?size=1024"}]
+[
+  {
+    "begin": "2026-04-29T05:00:00.124000+00:00",
+    "end": "2026-04-29T07:00:00.124000+00:00",
+    "description": ["asd"],
+    "location": "sdfsfawefas",
+    "name": "asdfas"
+  }
+]
