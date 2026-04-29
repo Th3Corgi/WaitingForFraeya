@@ -9,6 +9,7 @@ from git import Repo
 from datetime import datetime
 
 gitrepo = '.git'
+token = os.getenv("githubPAT")
 
 load_dotenv()
 intents = discord.Intents.default()
@@ -51,7 +52,6 @@ async def hourly_task():
                     "image": s.cover_image.url
                 })
                 
-        
     previous = {}
     with open("calendar/streams.json", "r+") as f:
         previous = json.load(f)
@@ -62,11 +62,25 @@ async def hourly_task():
         with open("calendar/streams.json", "w+") as f:
             f.write(json.dumps(events))
             
-        repo = Repo(gitrepo)
-        repo.index.add(['calendar/streams.json'])
-        repo.index.commit(f"Event Update: {datetime.now().strftime("%d/%m/%Y, %H:%M:%S")}")
+        try:
+            print("Changes Detected")
+            repo = Repo(gitrepo)
+            repo.index.add(['calendar/streams.json'])
+            repo.index.commit(f"Event Update: {datetime.now().strftime('%d/%m/%Y, %H:%M:%S')}")
+            
+            origin = repo.remote('origin')
+            base_url = origin.url
+
+            auth_url = base_url.replace(
+                "https://",
+                f"https://{token}@"
+            )
+
+            origin.push(refspec="main:main", env={"GIT_ASKPASS": "true"})
+            print("Pushed.")
+        except Exception:
+            print("Git Failed")
+            raise
         
-        main = repo.remote('origin')
-        main.push()
 
 client.run(os.getenv('discordToken'))
