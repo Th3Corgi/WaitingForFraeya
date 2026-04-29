@@ -66,6 +66,7 @@ async def hourly_task():
     repo = Repo(gitrepo)
 
     origin = repo.remote('origin')
+    
     origin.fetch()
     
     # 2. Get the remote commit
@@ -80,6 +81,7 @@ async def hourly_task():
 
     logging.info(previousData)
     logging.info(events)
+    
     if (previousData == events):
         logging.info("No change in events.")
     else:               
@@ -87,8 +89,9 @@ async def hourly_task():
             f.write(json.dumps(events))
             
         try:
+            origin.pull("main")
+            
             logging.info("Changes Detected")
-            repo = Repo(gitrepo)
             repo.index.add(['calendar/streams.json'])
             repo.index.commit(f"Event Update: {datetime.now().strftime("%d/%m/%Y, %H:%M:%S")}")
 
