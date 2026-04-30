@@ -6,10 +6,10 @@ on:
   push:
     branches: ["main"]
 
+  # We might want to eventually remove this? since im just running event updates on push now? Maybe i can have the discord bot directly trigger the run via API? Rather than relying on arbitrary timers.
   schedule:
     - cron: "0/10 0-6,17-22 * * *"
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 env:
