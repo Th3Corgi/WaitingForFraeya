@@ -11,7 +11,13 @@ import logging
 import sys
 
 gitrepo = '.git'
-logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+logging.basicConfig(
+    format='%(asctime)s %(levelname)s: %(message)s',
+    stream=sys.stdout,
+    level=logging.INFO,
+    datefmt='%Y-%m-%d %H:%M:%S',
+    force=True
+)
 
 load_dotenv()
 
@@ -20,12 +26,6 @@ intents = discord.Intents.default()
 intents.guild_scheduled_events = True
 
 client = discord.Client(intents=intents)
-
-logging.basicConfig(
-    format='%(asctime)s %(levelname)s: %(message)s',
-    level=logging.INFO,
-    datefmt='%Y-%m-%d %H:%M:%S'
-)
 
 # Keep a list of valid creators so that we dont get attacked by spam events
 # Corgi, Fraeya, Cujo
