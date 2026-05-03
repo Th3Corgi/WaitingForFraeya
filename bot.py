@@ -21,6 +21,12 @@ intents.guild_scheduled_events = True
 
 client = discord.Client(intents=intents)
 
+logging.basicConfig(
+    format='%(asctime)s %(levelname)s: %(message)s',
+    level=logging.INFO,
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+
 # Keep a list of valid creators so that we dont get attacked by spam events
 # Corgi, Fraeya, Cujo
 validEventCreators = [131572993242431488, 1005892341686616216, 181228012430163978]
