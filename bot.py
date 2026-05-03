@@ -39,28 +39,30 @@ async def hourly_task():
 
     # in each guild
     for guild in client.guilds:
-        # if guild.id == fraeya server id
-        
-        # for each scheduled event
-        for s in guild.scheduled_events:
+        # If we are inside fraeya's guild
+        if guild.id == 1072615584925229076:
             
-            if (s.creator_id in validEventCreators):
+            # for each scheduled event
+            for s in guild.scheduled_events:
                 
-                e = {}
-                if (s.start_time):
-                    e["begin"] = s.start_time.isoformat()
-                if (s.end_time):
-                    e["end"] = s.end_time.isoformat()
-                if (s.description):
-                    e["description"] = s.description,
-                if (s.location):
-                    e["location"] = s.location
-                if (s.name):
-                    e["name"] = s.name
-                if (s.cover_image):
-                    e["image"] = s.cover_image.url
+                if (s.creator_id in validEventCreators):
                     
-                events.append(e)
+                    e = {}
+                    if (s.start_time):
+                        e["begin"] = s.start_time.isoformat()
+                    if (s.end_time):
+                        e["end"] = s.end_time.isoformat()
+                    if (s.description):
+                        e["description"] = s.description,
+                    if (s.location):
+                        e["location"] = s.location
+                    if (s.name):
+                        e["name"] = s.name
+                    if (s.cover_image):
+                        e["image"] = s.cover_image.url
+                        
+                    events.append(e)
+                    logging.info(f"event {e} added!")
                 
                 
     repo = Repo(gitrepo)
@@ -73,9 +75,6 @@ async def hourly_task():
     remote_content = blob.data_stream.read().decode("utf-8")
 
     previousData = json.loads(remote_content)
-
-    logging.info(previousData)
-    logging.info(events)
     
     oldStartTimes = {item["begin"] for item in previousData}
     newStartTimes = {item["begin"] for item in events}
