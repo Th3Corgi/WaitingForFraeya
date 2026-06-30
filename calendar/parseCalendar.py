@@ -1,5 +1,5 @@
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 
 streams=[]
@@ -13,6 +13,10 @@ streams.sort(key=lambda x: x["begin"])
 for s in streams:
     now = datetime.now(timezone.utc)
     
+    if (s["end"] is None):
+        # no end time assign it 3 hours
+        s["end"] = (datetime.fromisoformat(s["begin"]) + timedelta(hours=3)).isoformat()
+        
     if datetime.fromisoformat(s["end"]) < now: 
         # Already ended
         continue
